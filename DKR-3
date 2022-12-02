@@ -1,0 +1,28 @@
+function f(x:real):real;
+begin
+f:=1*x*x*x+1*x*x+0*x+6;                  
+end;
+function f1(x:real):real;
+begin
+f1:=(1*x*x*x*x/4)+(1*x*x*x/3)+(6*x);         
+end;
+var a,b,h,s,y:real;
+    n,i:integer;
+begin
+writeln('Введите левую границу');
+readln(a);
+writeln('Введите правую границу');
+readln(b);
+write('Введите число разбиений');
+readln(n);
+h:=(b-a)/n;
+s:=(f(a)+f(b))/2;
+for i:=1 to n-1 do
+s:=s+f(a+i*h);
+s:=s*h;
+writeln('S=',s:0:5);
+y:=f1(b)-f1(a);
+writeln('Аналитическое значение=',y:0:5);            
+writeln('Абсолютная погрешность=',abs(y-s):0:5);
+writeln('Относительная погрешность=',abs(y-s)/y)
+end.
